@@ -1,0 +1,415 @@
+import { Head, Notes, themes, Steps } from "mdx-deck";
+import customTheme from "./theme";
+import stinky from "./stinky.gif";
+import door from "./door.gif";
+import garfield from "./garfield.gif";
+import what from "./what.gif";
+import logo from "./logo.svg";
+import syntax from "./logo.png";
+
+export const theme = { ...customTheme, ...themes.prism };
+
+<Head>
+  <title>2 Design 2 System</title>
+</Head>
+
+# Design Systems & CSS Variables
+
+## 2 Design 2 Systems
+
+A dive into why we don't use CSS frameworks.
+
+---
+
+## Who I Am
+
+Syntax and Level Up Tutorials
+
+<div style={{ display: "flex	" }}>
+
+<img
+  style={{
+    maxWidth: "600px",
+    height: "auto",
+  }}
+  src={syntax}
+/>
+
+<img
+  style={{
+    maxWidth: "600px",
+    height: "auto",
+  }}
+  src={logo}
+/>
+</div>
+
+---
+
+## A Brief History of LevelUpTutorials.com
+
+- Initially built in Drupal
+- Ported to Meteor
+- Creation of store
+- Combined into 1 site
+- Piles and piles of functionality added
+
+---
+
+# Rebuilding From Scratch
+
+---
+
+# Part 2. The Good Stuff
+
+---
+
+## Variables in Pre Pros
+
+### Sass
+
+```scss
+$black: #333;
+```
+
+### Stylus
+
+```css
+black = #333
+```
+
+---
+
+## CSS Variables
+
+```css
+:root {
+  --black: #333;
+}
+
+h1 {
+  color: var(--black);
+}
+```
+
+---
+
+## Da Mystery of Sandboxin'
+
+<iframe
+  src="https://codesandbox.io/embed/priceless-frog-692wl?fontsize=24&hidenavigation=1&module=%2Fstyle.css&theme=dark"
+  style={{
+    width: "100%",
+    height: "500px",
+    border: 0,
+    borderRadius: "4px",
+    overflow: "hidden",
+  }}
+  title="priceless-frog-692wl"
+  allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+  sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+></iframe>
+
+---
+
+## 360 no-no scope
+
+<iframe
+  src="https://codesandbox.io/embed/stupefied-dirac-n84pp?fontsize=24&hidenavigation=1&module=%2Fstyle.css&theme=dark"
+  style={{
+    width: "100%",
+    height: "500px",
+    border: 0,
+    borderRadius: "4px",
+    overflow: "hidden",
+  }}
+  title="priceless-frog-692wl"
+  allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+  sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+></iframe>
+
+---
+
+## Lil' JS
+
+<iframe
+  src="https://codesandbox.io/embed/confident-paper-7lkcd?fontsize=24&hidenavigation=1&module=%2Fstyle.css&theme=dark"
+  style={{
+    width: "100%",
+    height: "500px",
+    border: 0,
+    borderRadius: "4px",
+    overflow: "hidden",
+  }}
+  title="priceless-frog-692wl"
+  allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+  sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+></iframe>
+
+---
+
+# Part 3. The System
+
+<Notes>
+  Let's dive into the code and talk about our theme engine and system
+</Notes>
+
+---
+
+## Design Is Hard
+
+<img
+  style={{
+    margin: "0 auto",
+    display: "block",
+    maxWidth: "600px",
+    height: "auto",
+  }}
+  src={garfield}
+/>
+
+---
+
+## What Does A System Consist Of?
+
+<Steps>
+
+- Color
+- Type
+- Spacing
+- Character
+- Elevation
+- Elements
+
+</Steps>
+
+---
+
+## Define Your Colors
+
+```css
+--purp: #524763;
+--purp-20: #6a5c80;
+--purp-60: #b8afc5;
+--darkPurp: #373142;
+--xtraPurp: #191324;
+--grey: #d8d8d8;
+--green: #cbe56c;
+--green-20: #daed97;
+--teal: #82d8d8;
+--teal-20: #b1e7e7;
+--red: #e54b4b;
+--red-20: #f08484;
+--pink: #cf256d;
+--black: #333;
+--black-20: #4f4f4f;
+--black-40: #828282;
+--black-60: #bdbdbd;
+--white-60: #e0e0e0;
+--white-40: #f2f2f2;
+--white-20: #f5f4f6;
+--white: #fff;
+```
+
+---
+
+## Define Your Color's Intentions
+
+```css
+--bgColor: var(--purp);
+--lineColor: var(--white-60);
+--zebraBg: var(--white-40);
+--sheetBg: var(--white);
+```
+
+<Notes>
+  This is nothing new. We've been doing this since Sass first dropped.
+</Notes>
+
+---
+
+## Typography is hard
+
+- https://type-scale.com/
+- https://www.modularscale.com/
+- https://www.figma.com/best-practices/typography-systems-in-figma/typography-scales/
+- https://jhildenbiddle.github.io/vertical-rhythm-reset/
+
+  <Notes>
+    Type is hard for most people. Follow a prebuilt system for ez nice looking
+    type.
+  </Notes>
+
+---
+
+## Type values
+
+```css
+/* Font Sizes */
+--baseFontSize: 1rem;
+--baseNavSize: 0.64rem;
+--smallFontSize: 0.8rem;
+--smallestFontSize: 0.512rem;
+
+--xtra-big-ass-heading: 3.052rem;
+--xtra-heading: 2.441rem;
+--heading-one: 1.953rem;
+--heading-two: 1.563rem;
+--heading-three: 1.25rem;
+--heading-four: var(--baseFontSize);
+--heading-five: var(--smallFontSize);
+--heading-six: 0.64rem;
+--heading-seven: var(--smallestFontSize);
+
+/* Fonts */
+--headingFont: "Poppins", sans-serif;
+--bodyFont: "Raleway", sans-serif;
+```
+
+<Notes>
+  This is nothing new. We've been doing this since Sass first dropped.
+</Notes>
+
+---
+
+## Margins Stink
+
+<img
+  style={{
+    margin: "0 auto",
+    display: "block",
+    maxWidth: "600px",
+    height: "auto",
+  }}
+  src={stinky}
+/>
+
+Just using margin bottom will save you headaches.
+
+---
+
+<iframe
+  src="https://codesandbox.io/embed/sweet-worker-w37t9?fontsize=24&hidenavigation=1&module=%2Fstyle.css&theme=dark&expanddevtools=1"
+  style={{
+    width: "100%",
+    height: "500px",
+    border: 0,
+    borderRadius: "4px",
+    overflow: "hidden",
+  }}
+  title="priceless-frog-692wl"
+  allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+  sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+></iframe>
+
+---
+
+## Elements
+
+Styled Components by name or otherwise
+
+ie
+
+```html
+<div class="Card">hi</div>
+```
+
+```html
+<Card>hi</Card>
+```
+
+---
+
+## What Makes a Good Element?
+
+<img
+  style={{
+    margin: "0 auto",
+    display: "block",
+    maxWidth: "600px",
+    height: "auto",
+  }}
+  src={what}
+/>
+
+- Simple
+- Obvious
+- Hard to break
+- Extendable
+
+---
+
+## Systems and Simplicity Over Config
+
+---
+
+## Make Components That Can't Be Goofed Up
+
+<img
+  style={{
+    margin: "0 auto",
+    display: "block",
+    maxWidth: "600px",
+    height: "auto",
+  }}
+  src={door}
+/>
+
+<Notes>
+  I should be able to put a card in a grid with a header and a form and have it
+  all just work
+</Notes>
+
+---
+
+## You Don't Need A Grid System
+
+CSS Grid is the homie
+
+We use a Grid component that gets extended where we need.
+
+<Notes>CSS Grid is just about the most simple thing we and use.</Notes>
+
+---
+
+## You Might Not Need a Framework
+
+Frameworks require overhead of both kbs and onboarding.
+
+Remember that bootstrap or foundation code?
+
+Write only what you need, use variables as the backbone.
+
+Always use variables for any color, typography, spacing and your entire site can be updated or configured in one fell swoop. Don't worry about creating unique components if they are all using custom properties.
+
+<Notes>
+  Making your own might seem overwhelming, BUT you don't need to making
+	something gigantic to make it effective.
+
+    We all know how it feels to look at code you didn't write
+
+</Notes>
+
+---
+
+## When You Might Need a Framework
+
+- Needs to be done fast.
+
+---
+
+## Reading
+
+https://www.designsystems.com/
+
+---
+
+## A Word On ie
+
+It's a mega bummer that ie doesn't support CSS variables because the fall backs aren't great.
+
+---
+
+# Thanks
+
+Go checkout syntax.fm and LevelUpTutorials.com

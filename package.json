@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "name": "@mdx-deck/basic-template",
+  "version": "4.1.1",
+  "scripts": {
+    "start": "mdx-deck deck.mdx",
+    "build": "mdx-deck build deck.mdx",
+    "help": "mdx-deck"
+  },
+  "devDependencies": {
+    "mdx-deck": "^4.1.1",
+    "mdx-deck-live-code": "^1.0.1"
+  }
+}
