@@ -1,6 +1,6 @@
 export default {
   fonts: {
-    body: '"MonoLisa", system-ui, sans-serif',
+    body: '"MonoLisa", monospace, system-ui, sans-serif',
     monospace: '"MonoLisa", monospace',
   },
   colors: {
